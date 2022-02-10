@@ -1,0 +1,17 @@
+td,
+th {
+  width: 7rem;
+  border: 2px solid black;
+  text-align: left;
+  padding: 1rem;
+}
+.outer {
+  width: 40%;
+  border: 1rem solid rgb(233, 233, 233);
+  padding: 2rem;
+}
+th,
+.color {
+  background-color: rgb(233, 233, 233);
+  font-weight: bold;
+}
