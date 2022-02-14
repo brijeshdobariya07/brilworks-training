@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  /* border: 1px solid black; */
+}
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+.logo {
+  width: 7rem;
+  height: 7rem;
+  margin: 1rem 5rem;
+}
+#navbar-header {
+  position: sticky;
+  top: 0;
+  margin-bottom: 2rem;
+  background-color: white;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+}
+nav ul li {
+  list-style-type: none;
+  margin: 0 1rem;
+}
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(187, 39, 39);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  width: 12vw;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Section Slider Images */
+
+.slider-images {
+  margin: auto;
+  text-align: center;
+  animation: slider 10s infinite;
+  width: 90%;
+  height: 800px;
+}
+/* .slider-images img {
+  width: 90%;
+  margin: auto;
+} */
+@keyframes slider {
+  0% {
+    background: url(./img/a1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  25% {
+    background: url(./img/a2.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  50% {
+    background: url(./img/a3.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  75% {
+    background: url(./img/a4.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  100% {
+    background: url(./img/a1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Content */
+#content {
+  margin-bottom: 1rem;
+}
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 9rem;
+}
+
+.left {
+  margin-right: 2rem;
+}
+.left h1:first-child {
+  color: salmon;
+  font-size: 2.5rem;
+  text-shadow: 3px 3px 3px black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 2rem;
+}
+.left p:first-of-type {
+  width: 70%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.left .today-deal-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  color: red;
+  margin: 1.5rem 0;
+}
+.menu {
+  width: 70%;
+}
+.menu--images {
+  display: grid;
+  grid-template-columns: repeat(4, 15rem);
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.menu-image-div {
+  border: 10px solid salmon;
+  border-radius: 10px;
+  width: 12rem;
+  height: 12rem;
+}
+.menu-image-div img {
+  width: 100%;
+  height: 100%;
+}
+
+.check-price-title {
+  text-align: center;
+  color: red;
+  margin-bottom: 2rem;
+}
+.order-table {
+  border-radius: 10px;
+  padding: 0 1.5rem 0.5rem;
+  background-color: rgb(187, 39, 39);
+}
+.order-details-title {
+  text-align: center;
+  border-bottom: 1px solid black;
+  color: white;
+}
+.order-form {
+  margin-top: 1.5rem;
+}
+.order-form label {
+  color: white;
+  font-size: 1.2rem;
+  margin-right: 2rem;
+}
+.order-form input {
+  /* margin: 0 1.5rem; */
+  width: 3rem;
+}
+.order-form button {
+  padding: 0 3px;
+}
+.order-form label:nth-of-type(2) {
+  margin-left: 3rem;
+}
+.bill-table {
+  /* border: 1px solid black; */
+  margin-top: 1.5rem;
+}
+.bill-table h2 {
+  color: salmon;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.bill-table table {
+  font-size: 1.2rem;
+  color: white;
+}
+.bill-table table td {
+  padding-bottom: 0.5rem;
+  width: 1rem;
+}
+.bill-table input {
+  background: rgb(248, 169, 169);
+  border-radius: 2px 2px 0 2px;
+  border: none;
+}
+
+/* Right Side */
+.right {
+  width: 30%;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+}
+.right * {
+  margin-bottom: 2rem;
+}
+.right .right-container {
+  width: 100%;
+}
+.right h1 {
+  background-color: rgb(187, 39, 39);
+  color: white;
+  padding: 0.5rem 1rem;
+}
+.right .schedule-day {
+  color: red;
+  padding: 0.5rem 2.5rem;
+  border: solid rgb(187, 39, 39);
+  border-width: 2px 2px 2px 0;
+  box-shadow: 2px 2px 2px black;
+}
+
+/* Footer Section */
+#footer {
+  display: block;
+  background-color: rgb(187, 39, 39);
+  padding: 2.5rem;
+  margin: 1rem 1rem;
+}
+#footer div {
+  float: right;
+  color: white;
+  font-size: 1.3rem;
+}
+.space {
+  height: 1px;
+}
