@@ -3,10 +3,22 @@ import "./style.css";
 // import "./script.js";
 
 const LoginForm = () => {
+  function printUser(e) {
+    e.preventDefault();
+    let printEmail = document.getElementById("printEmail");
+    let printPassword = document.getElementById("printPassword");
+    let userEmail = document.querySelector("#email").value;
+    let userPassword = document.querySelector("#password").value;
+    console.log(userEmail, userPassword);
+    console.log(printEmail, printPassword);
+    printEmail.innerHTML = `Email : ${userEmail} `;
+    printPassword.innerHTML = `Password : ${userPassword}`;
+  }
+
   return (
     <div>
       <section id="main">
-        <div class="user-details">
+        <div className="user-details">
           <h1>React Form</h1>
           <form>
             <table>
@@ -15,7 +27,7 @@ const LoginForm = () => {
                   <label htmlFor="text">Email</label>
                 </td>
                 <td>
-                  <input type="text" id="email" value="" placeholder="email" />
+                  <input type="text" id="email" placeholder="email" />
                 </td>
               </tr>
               <tr>
@@ -23,19 +35,21 @@ const LoginForm = () => {
                   <label htmlFor="password">Password</label>
                 </td>
                 <td>
-                  <input
-                    type="password"
-                    id="password"
-                    value=""
-                    placeholder="password"
-                  />
+                  <input type="password" id="password" placeholder="password" />
                 </td>
               </tr>
             </table>
           </form>
-          <button id="getUser">GET USER</button>
+          <button id="getUser" onClick={printUser}>
+            GET USER
+          </button>
+          <div id="user-output">
+            <div id="printEmail"></div>
+            <div id="printPassword"></div>
+          </div>
         </div>
       </section>
+      {/* <section id="user-output"></section> */}
     </div>
   );
 };

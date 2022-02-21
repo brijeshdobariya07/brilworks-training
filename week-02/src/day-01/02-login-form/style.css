@@ -1,17 +1,8 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  
-} */
 #main {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   background-color: #d9afd9;
   background-image: linear-gradient(45deg, #d9afd9 0%, #97d9e1 50%);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -49,4 +40,5 @@ button:hover {
 }
 #user-output {
   text-align: center;
+  margin-top: 10rem;
 }
