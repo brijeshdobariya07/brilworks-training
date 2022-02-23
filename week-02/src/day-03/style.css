@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Montserrat", "Rancho", "Lucida Sans", "Lucida Sans Regular",
+    sans-serif;
+  background: rgb(22, 22, 22);
+}
+.login-title {
+  margin-bottom: 3rem;
+  background-color: #7d3baa;
+  border-radius: 10px;
+  color: azure;
+  padding: 0.5rem 1.3rem;
+}
+.App {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+label,
+input {
+  margin: 1rem 0;
+  padding: 0.1rem 0.5rem;
+}
+input {
+  font-size: 1.3rem;
+  border: none;
+  background: none;
+  border-bottom: 3px solid rgb(44, 172, 165);
+  text-align: center;
+}
+input:focus {
+  outline: none;
+}
+.form-details {
+  border: 2px solid rgb(46, 110, 91);
+  padding: 2rem;
+  border-radius: 20px;
+  background: #f2f2f2;
+}
+button {
+  font-family: inherit;
+  font-size: 1.2rem;
+  padding: 0.3rem 1rem;
+  margin-top: 1.5rem;
+  border-radius: 20px;
+  border: 2px solid black;
+  background-color: #5de6de;
+}
+button:hover {
+  background-color: #f1f1f1;
+}
+#success-login {
+  color: #71c562;
+}
+.message {
+  font-family: "Gill Sans", sans-serif;
+  position: absolute;
+  bottom: 8rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: bold;
+  color: #71c562;
+}
+.message {
+  color: rgb(206, 44, 44);
+}

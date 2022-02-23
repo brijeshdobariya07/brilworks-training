@@ -54,7 +54,7 @@ class LoginClass extends Component {
       <div>
         <div className="form-details">
           <form action="">
-            <h1 className="login-title">Login</h1>
+            <h1 className="login-title">Class Login</h1>
             <label htmlFor="email">Email </label>
             <br />
             <input type="text" id="email" />
