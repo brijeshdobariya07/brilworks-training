@@ -54,26 +54,15 @@ class LoginClass extends Component {
       <div>
         <div className="form-details">
           <form action="">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <label htmlFor="email">Email : </label>
-                  </td>
-                  <td>
-                    <input type="text" id="email" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label htmlFor="password">Password : </label>
-                  </td>
-                  <td>
-                    <input type="text" id="password" />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <h1 className="login-title">Login</h1>
+            <label htmlFor="email">Email </label>
+            <br />
+            <input type="text" id="email" />
+            <br />
+            <label htmlFor="password">Password </label>
+            <br />
+            <input type="password" id="password" />
+            <br />
             <button type="submit" onClick={this.verifyUser}>
               Submit
             </button>
