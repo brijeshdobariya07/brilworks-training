@@ -11,6 +11,8 @@ function LoginFormFunctional() {
   const hideShow = () => {
     setStatus(false);
     setMsg("");
+    setTypedEmail("");
+    setTypedPassword("");
   };
 
   const validateUser = (e) => {
