@@ -34,7 +34,7 @@ function LoginFormFunctional() {
         setStatus(false);
       }
     } else {
-      findEmail.length === 0 && findPassword === 0
+      findEmail.length === 0 && findPassword.length === 0
         ? setMsg("Wrong Credentials")
         : setMsg("No Such User");
       setStatus(false);

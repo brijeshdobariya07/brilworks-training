@@ -48,8 +48,9 @@ input:focus {
 }
 .form-details {
   border: 2px solid rgb(46, 110, 91);
+  border: 2px solid black;
   padding: 2rem;
-  border-radius: 20px;
+  border-radius: 15px;
   background: #f2f2f2;
 }
 button {
@@ -70,7 +71,7 @@ button:hover {
 .message {
   font-family: "Gill Sans", sans-serif;
   position: absolute;
-  bottom: 8rem;
+  bottom: 10rem;
   left: 0;
   right: 0;
   text-align: center;
