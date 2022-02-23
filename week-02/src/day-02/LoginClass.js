@@ -29,11 +29,11 @@ class LoginClass extends Component {
             displayMsg.textContent = "";
             this.setState({ status: true, name: findEmail[0].name });
           } else {
-            displayMsg.textContent = "Wrong password";
+            displayMsg.textContent = "Invalid password";
             this.setState({ status: false });
           }
         } else {
-          displayMsg.textContent = "No such user";
+          displayMsg.textContent = "Wrong Credentials";
           this.setState({ status: false });
         }
       } else {
@@ -41,7 +41,10 @@ class LoginClass extends Component {
         this.setState({ status: false });
       }
     } else {
-      displayMsg.textContent = "Enter a valid email";
+      displayMsg.textContent =
+        findEmail.length === 0 && findPassword.length === 0
+          ? "Wrong Credentials"
+          : "No such user";
       this.setState({ status: false });
     }
   };
