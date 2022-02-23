@@ -5,7 +5,7 @@ import "./style.css";
 function MainLoginForm() {
   return (
     <div>
-      <LoginClass />
+      <LoginClass className="container" />
     </div>
   );
 }
