@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import CreateTaskButton from "./CreateTaskButton";
 import Header from "./Header";
 import ListBody from "./ListBody";
 
 class ListView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
   render() {
@@ -12,6 +13,7 @@ class ListView extends Component {
       <div>
         <Header />
         <ListBody />
+        <CreateTaskButton statusHandler={this.props.statusHandler} />
       </div>
     );
   }
