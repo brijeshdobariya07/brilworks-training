@@ -12,7 +12,10 @@ class ListView extends Component {
     return (
       <div>
         <Header />
-        <ListBody />
+        <ListBody
+          taskData={this.props.taskData}
+          statusHandler={this.props.statusHandler}
+        />
         <CreateTaskButton statusHandler={this.props.statusHandler} />
       </div>
     );
