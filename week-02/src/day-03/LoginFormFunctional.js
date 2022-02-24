@@ -37,8 +37,8 @@ function LoginFormFunctional() {
       }
     } else {
       findEmail.length === 0 && findPassword.length === 0
-        ? setMsg("Wrong Credentials")
-        : setMsg("No Such User");
+        ? setMsg("No Such User")
+        : setMsg("Wrong Credentials");
       setStatus(false);
     }
   };

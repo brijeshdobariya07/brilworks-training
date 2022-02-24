@@ -8,14 +8,16 @@ class LoginClass extends Component {
     this.state = {
       status: false,
       name: "",
+      typedEmail: "",
+      typedPassword: "",
+      msg: "",
     };
   }
 
   verifyUser = (e) => {
     e.preventDefault();
-    const typedEmail = document.getElementById("email").value;
-    const typedPassword = document.getElementById("password").value;
-    const displayMsg = document.querySelector(".message");
+    const typedEmail = this.state.typedEmail;
+    const typedPassword = this.state.typedPassword;
 
     const findEmail = userData.filter((user) => user.email === typedEmail);
     const findPassword = userData.filter(
@@ -26,26 +28,24 @@ class LoginClass extends Component {
       if (findPassword.length) {
         if (findEmail[0].email === typedEmail) {
           if (findPassword[0].password === typedPassword) {
-            displayMsg.textContent = "";
-            this.setState({ status: true, name: findEmail[0].name });
+            this.setState({ status: true, name: findEmail[0].name, msg: "" });
           } else {
-            displayMsg.textContent = "Invalid password";
-            this.setState({ status: false });
+            this.setState({ status: false, msg: "Invalid password" });
           }
         } else {
-          displayMsg.textContent = "Wrong Credentials";
-          this.setState({ status: false });
+          this.setState({ status: false, msg: "No Such User" });
         }
       } else {
-        displayMsg.textContent = "Enter a valid password";
-        this.setState({ status: false });
+        this.setState({ status: false, msg: "Enter a valid password" });
       }
     } else {
-      displayMsg.textContent =
-        findEmail.length === 0 && findPassword.length === 0
-          ? "Wrong Credentials"
-          : "No such user";
-      this.setState({ status: false });
+      this.setState({
+        status: false,
+        msg:
+          findEmail.length === 0 && findPassword.length === 0
+            ? "No such user"
+            : "Wrong Credentials",
+      });
     }
   };
 
@@ -57,18 +57,26 @@ class LoginClass extends Component {
             <h1 className="login-title">Class Login</h1>
             <label htmlFor="email">Email </label>
             <br />
-            <input type="text" id="email" />
+            <input
+              type="text"
+              id="email"
+              onChange={(e) => this.setState({ typedEmail: e.target.value })}
+            />
             <br />
             <label htmlFor="password">Password </label>
             <br />
-            <input type="password" id="password" />
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => this.setState({ typedPassword: e.target.value })}
+            />
             <br />
             <button type="submit" onClick={this.verifyUser}>
               Submit
             </button>
           </form>
         </div>
-        <div className="message"></div>
+        <div className="message">{this.state.msg}</div>
         {this.state.status ? <SuccessLogin msg={this.state.name} /> : null}
       </div>
     );
