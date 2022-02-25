@@ -12,7 +12,11 @@ class CreateView extends Component {
     return (
       <div>
         <Header />
-        <CreateBody />
+        <CreateBody
+          taskData={this.props.taskData}
+          statusHandler={this.props.statusHandler}
+          currentTask={this.props.currentTask}
+        />
         <CloseButton statusHandler={this.props.statusHandler} />
       </div>
     );

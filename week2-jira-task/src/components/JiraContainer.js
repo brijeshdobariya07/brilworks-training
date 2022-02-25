@@ -10,12 +10,16 @@ class JiraContainer extends Component {
     this.state = {
       status: false,
       taskData: data,
+      editTask: {},
     };
     this.statusHandler = this.statusHandler.bind(this);
   }
 
-  statusHandler() {
+  currentTask;
+
+  statusHandler(task) {
     this.setState({ status: !this.state.status });
+    this.currentTask = task;
   }
 
   render() {
@@ -30,6 +34,7 @@ class JiraContainer extends Component {
           <CreateView
             statusHandler={this.statusHandler}
             taskData={this.state.taskData}
+            currentTask={this.currentTask}
           />
         )}
       </div>
