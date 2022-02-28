@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function CreateBody(props) {
   const { title, desc, status } = props.currentTask || {};
@@ -7,12 +7,6 @@ function CreateBody(props) {
   const [descName, setDescName] = useState(desc || "");
   const [statusName, setStatusName] = useState(status || "");
   let taskData = props.taskData;
-
-  // useEffect(() => {
-  //   setTitleName(title);
-  //   setDescName(desc);
-  //   setStatusName(status);
-  // }, [title, desc, status]);
 
   const updateTask = (e) => {
     e.preventDefault();
@@ -30,6 +24,7 @@ function CreateBody(props) {
     setTitleName("");
     setDescName("");
     setStatusName("");
+    props.statusHandler();
   };
 
   return (
@@ -73,7 +68,9 @@ function CreateBody(props) {
             </select>
           </div>
           <div>
-            <button onClick={updateTask}>ADD / Update</button>
+            <button onClick={updateTask}>
+              {title && desc && status ? "Update" : "ADD"}
+            </button>
           </div>
         </form>
       </div>
