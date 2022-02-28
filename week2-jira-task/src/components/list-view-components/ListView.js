@@ -9,14 +9,12 @@ class ListView extends Component {
     this.state = {};
   }
   render() {
+    const { taskData, statusHandler } = this.props;
     return (
       <div>
         <Header />
-        <ListBody
-          taskData={this.props.taskData}
-          statusHandler={this.props.statusHandler}
-        />
-        <CreateTaskButton statusHandler={this.props.statusHandler} />
+        <ListBody taskData={taskData} statusHandler={statusHandler} />
+        <CreateTaskButton statusHandler={statusHandler} />
       </div>
     );
   }

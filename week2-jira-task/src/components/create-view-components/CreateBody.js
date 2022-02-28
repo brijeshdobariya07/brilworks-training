@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from "react";
 
 function CreateBody(props) {
-  const [titleName, setTitleName] = useState("");
-  const [descName, setDescName] = useState("");
-  const [statusName, setStatusName] = useState("");
+  const { title, desc, status } = props.currentTask || {};
+
+  const [titleName, setTitleName] = useState(title || "");
+  const [descName, setDescName] = useState(desc || "");
+  const [statusName, setStatusName] = useState(status || "");
   let taskData = props.taskData;
 
-  const { title, desc, status } = props.currentTask || {
-    title: "",
-    desc: "",
-    status: "",
-  };
-
-  useEffect(() => {
-    setTitleName(title);
-    setDescName(desc);
-    setStatusName(status);
-  }, [title, desc, status]);
+  // useEffect(() => {
+  //   setTitleName(title);
+  //   setDescName(desc);
+  //   setStatusName(status);
+  // }, [title, desc, status]);
 
   const updateTask = (e) => {
     e.preventDefault();

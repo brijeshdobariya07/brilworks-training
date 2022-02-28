@@ -25,11 +25,11 @@ function ListBody(props) {
   };
 
   const deleteTaskIcon = (task) => {
-    const findDoneTaskIndex = props.taskData.findIndex((item) => {
-      return item.title === task.title && item.status === task.status;
-    });
-    props.taskData.splice(findDoneTaskIndex, 1);
-    const doneTasks = props.taskData.filter((task) => task.status === "done");
+    const findDoneTaskIndex = props.taskData.findIndex(
+      (item) => item.title === task.title && item.status === task.status
+    );
+    props.taskData?.splice(findDoneTaskIndex, 1);
+    const doneTasks = props.taskData?.filter((task) => task.status === "done");
     setDoneList(doneTasks);
   };
 
