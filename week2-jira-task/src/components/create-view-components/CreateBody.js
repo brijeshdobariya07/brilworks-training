@@ -18,13 +18,18 @@ function CreateBody(props) {
       taskData[editTaskIndex].title = titleName;
       taskData[editTaskIndex].desc = descName;
       taskData[editTaskIndex].status = statusName;
+      props.statusHandler();
     } else {
-      taskData.push({ title: titleName, desc: descName, status: statusName });
+      if (titleName && descName && statusName) {
+        taskData.push({ title: titleName, desc: descName, status: statusName });
+        setTitleName("");
+        setDescName("");
+        setStatusName("");
+        props.statusHandler();
+      } else {
+        alert("Please Fill all fields");
+      }
     }
-    setTitleName("");
-    setDescName("");
-    setStatusName("");
-    props.statusHandler();
   };
 
   return (
