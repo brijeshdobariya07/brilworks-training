@@ -65,7 +65,7 @@ textarea {
 
 label {
   font-size: 0.8rem;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
 }
 textarea {
   resize: none;
@@ -104,7 +104,7 @@ input[type="file"]::file-selector-button {
   width: 100%;
   margin-top: 2.6rem;
   padding: 0.4rem 5rem;
-  border-radius: 50px;
+  border-radius: 100px;
   border: none;
   background-color: #fb0061;
   font-size: 1.1rem;
@@ -114,5 +114,42 @@ input[type="file"]::file-selector-button {
     sans-serif;
 }
 .form-details button:hover {
-  background-color: #920239;
+  background-color: #c31c5c;
+}
+/* 
+input[type="text"]::after {
+  content: "Error";
+  color: red;
+  display: block;
+} */
+
+.displayAlert {
+  position: absolute;
+  width: 30rem;
+  background-color: aliceblue;
+  top: 0;
+  padding: 1rem;
+  border-radius: 10px;
+  transform: translate(-50%, 20%);
+  transition: 0.5s;
+}
+
+.hideAlert {
+  transform: translate(-50%, -105%);
+}
+.displayAlert button {
+  background-color: #fb0061;
+  padding: 0.3rem 1rem;
+  float: right;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: aliceblue;
+}
+
+.input-err-msg {
+  color: red;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
 }
