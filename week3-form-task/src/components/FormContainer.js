@@ -9,12 +9,13 @@ class FormContainer extends Component {
     super(props);
     this.state = {
       status: false,
+      data: {},
     };
     this.handleStatusAndData = this.handleStatusAndData.bind(this);
   }
 
-  handleStatusAndData() {
-    this.setState({ status: !this.state.status });
+  handleStatusAndData(data) {
+    this.setState({ status: !this.state.status, data });
   }
 
   render() {
@@ -25,7 +26,10 @@ class FormContainer extends Component {
           {!this.state.status ? (
             <RightSide handleStatusAndData={this.handleStatusAndData} />
           ) : (
-            <Card />
+            <Card
+              data={this.state.data}
+              handleStatusAndData={this.handleStatusAndData}
+            />
           )}
         </div>
       </div>

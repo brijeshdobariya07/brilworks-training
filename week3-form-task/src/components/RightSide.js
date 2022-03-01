@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function RightSide(props) {
   const handleStatusAndData = props.handleStatusAndData;
@@ -10,28 +10,80 @@ function RightSide(props) {
     address: "",
     pic: "",
   });
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState(10);
   const [address, setAddress] = useState("");
-  const pic = useRef();
+  const picFile = useRef("");
   const [alert, setAlert] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // handleStatusAndData();
-    console.log(data);
-  };
+  useEffect(() => {
+    setData({
+      fname: firstName,
+      lname: lastName,
+      age: age,
+      address: address,
+      pic: picFile?.current.files[0],
+    });
+  }, [firstName, lastName, age, address, picFile]);
 
-  const validate = (e) => {
+  const handleInput = (e) => {
     const { name, value } = e.target;
-    name !== "pic"
-      ? setData((prev) => ({ ...prev, [name]: value }))
-      : setData((prev) => ({ ...prev, [name]: e.target.files[0] }));
+
+    const nameRegx = /^[a-zA-Z]{0,20}$/;
+    const numRegx = /^\d+$/;
+
+    switch (name) {
+      case "fname":
+        if (nameRegx.test(value) && value !== null) {
+          setFirstName(value);
+        }
+        break;
+
+      case "lname":
+        if (nameRegx.test(value) && value !== null) {
+          setLastName(value);
+        }
+        break;
+
+      case "age":
+        if (
+          numRegx.test(value) &&
+          value >= 10 &&
+          value <= 100 &&
+          value !== null
+        ) {
+          setAge(value);
+        }
+        break;
+
+      case "address":
+        if (value.length <= 240 && value !== null) {
+          setAddress(value);
+        }
+        break;
+
+      case "pic":
+        setData((item) => ({ ...item, pic: picFile.current.files[0] }));
+        break;
+
+      default:
+    }
   };
 
   const handleAlert = () => {
     setAlert(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isFile = picFile.current.files.length;
+    if (firstName && lastName && address && isFile) {
+      handleStatusAndData(data);
+    } else {
+      setAlert(true);
+    }
   };
 
   return (
@@ -40,15 +92,19 @@ function RightSide(props) {
         <h2>Please Fill This Form</h2>
         <form action="">
           <div>
-            <label htmlFor="fName">First Name</label>
+            <label htmlFor="fname">First Name</label>
             <input
               type="text"
               id="fname"
               name="fname"
-              onChange={(e) => validate(e)}
+              placeholder="Enter First Name"
+              value={firstName}
+              onChange={(e) => handleInput(e)}
             />
-            {Boolean(firstName.length) || (
-              <div className="input-err-msg">* Please fill out this field</div>
+            {Boolean(firstName.length < 20) || (
+              <div className="input-err-msg">
+                * Max Character length is 20 & Numbers are not allowed{" "}
+              </div>
             )}
           </div>
 
@@ -57,9 +113,16 @@ function RightSide(props) {
             <input
               type="text"
               id="lname"
-              name="lName"
-              onChange={(e) => validate(e)}
+              name="lname"
+              placeholder="Enter Last Name"
+              value={lastName}
+              onChange={(e) => handleInput(e)}
             />
+            {Boolean(lastName.length < 20) || (
+              <div className="input-err-msg">
+                * Max Character length is 20 & Numbers are not allowed
+              </div>
+            )}
           </div>
 
           <div>
@@ -68,7 +131,8 @@ function RightSide(props) {
               type="number"
               id="age"
               name="age"
-              onChange={(e) => validate(e)}
+              value={age}
+              onChange={(e) => handleInput(e)}
             />
           </div>
 
@@ -76,12 +140,16 @@ function RightSide(props) {
             <label htmlFor="address">Address</label>
             <textarea
               name="address"
+              value={address}
               id="address"
               cols="25"
               rows="3"
               placeholder="Write Your Address"
-              onChange={(e) => validate(e)}
+              onChange={(e) => handleInput(e)}
             ></textarea>
+            {Boolean(address.length < 240) || (
+              <div className="input-err-msg">* Max Character length is 240</div>
+            )}
           </div>
 
           <div>
@@ -90,18 +158,19 @@ function RightSide(props) {
               type="file"
               id="pic"
               name="pic"
-              onChange={(e) => validate(e)}
+              ref={picFile}
+              onChange={(e) => handleInput(e)}
             />
           </div>
 
           <button type="submit" onClick={(e) => handleSubmit(e)}>
-            Get Details
+            Submit
           </button>
         </form>
       </div>
 
       <div className={alert ? "displayAlert" : "displayAlert hideAlert"}>
-        <p className="alertMsg">This is Alert</p>
+        <p className="alertMsg">Please Fill all the fields</p>
         <button onClick={handleAlert}>Close</button>
       </div>
     </div>
