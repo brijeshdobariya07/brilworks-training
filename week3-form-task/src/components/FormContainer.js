@@ -19,17 +19,15 @@ class FormContainer extends Component {
   }
 
   render() {
+    const { status, data } = this.state;
     return (
       <div>
         <div className="form-container">
           <LeftSideImage />
-          {!this.state.status ? (
+          {!status ? (
             <RightSide handleStatusAndData={this.handleStatusAndData} />
           ) : (
-            <Card
-              data={this.state.data}
-              handleStatusAndData={this.handleStatusAndData}
-            />
+            <Card data={data} handleStatusAndData={this.handleStatusAndData} />
           )}
         </div>
       </div>

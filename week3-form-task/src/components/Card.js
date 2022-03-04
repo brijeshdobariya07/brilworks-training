@@ -1,7 +1,7 @@
 import React from "react";
 
 function Card(props) {
-  const { fname, lname, age, address, pic } = props.data;
+  const { fname, lname, age, address, pic } = props.data || {};
   const handleStatusAndData = props.handleStatusAndData;
   return (
     <div className="card-container">
